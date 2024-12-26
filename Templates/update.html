@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+{%block title%} Home {%endblock%}
+
+{%block content%}
+</div>
+<form action="{{url_for('update_task',task_id=task['_id'])}}" method="post">
+<h3 align="center">Update Task</h3>
+    <div class="form-group">
+<input type="text" id="task" placeholder="Enter updated task" name="task" class="form-control" required>
+<div align="center">
+<button type="submit" class="btn btn-primary">Update Task</button>
+</div>
+
+{%endblock%}

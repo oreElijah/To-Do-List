@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%block title%} Home {%endblock%}
+
+{%block content%}
+</div>
+<h1>Welcome, {{ current_user.name }}</h1>
+<form action="/home" method="post">
+<h3 align="center">To-Do-List</h3>
+    <div class="form-group">
+<input type="text" id="task" placeholder="Enter your task" name="task" class="form-control" >
+<div align="center">
+<button type="submit" class="btn btn-primary">Add Task</button>
+<button class="btn btn-primary"><a href="{{url_for('check_task')}}" class="a">check task</a></button>
+</div>
+{% if task_list %}
+<h2>Your Tasks</h2>
+<ul>
+    {% for task in task_list %}
+    <br>
+        <li>{{ task['Date'] }}: {{ task['Task'] }} <button  onclick="return confirm('Are you sure you want to delete this task?');" class="btn btn-danger"><a href="{{url_for('delete_task',task_id=task.id)}}" class="a">Delete</a></button>         <button class="btn btn-danger"><a href="{{url_for('update_task',task_id=task.id)}}" class="a">Update</a></button> </li>
+        
+        {% endfor %}
+</ul>
+{% endif %}
+</div>
+{%endblock%}
