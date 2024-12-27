@@ -12,7 +12,6 @@ itsdangerous==2.2.0
 Jinja2==3.1.5
 MarkupSafe==3.0.2
 packaging==24.2
-pyinstaller==5.2
 pymongo==4.10.1
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
