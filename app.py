@@ -1,4 +1,4 @@
-from flask import Flask, flash, redirect, render_template, request, session, url_for
+from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from werkzeug.security import generate_password_hash , check_password_hash
 import os
@@ -6,6 +6,9 @@ from datetime import datetime
 from bson.objectid import ObjectId
 from config.db import dbs, task_db
 from model import User
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "default_secret_key_for_dev")
@@ -116,6 +119,7 @@ def test():
 @login_required
 def update_task(task_id):
     task = task_db.find_one({"_id": ObjectId(task_id), "UserId": ObjectId(current_user.id)}) 
+    print(task)
     if not task:
         return "Task not found", 404
 
