@@ -3,7 +3,7 @@ from flask_login import LoginManager, current_user, login_required, login_user, 
 from werkzeug.security import generate_password_hash , check_password_hash
 import os
 from datetime import datetime
-from bson.objectid import ObjectId
+from pymongo import ObjectId
 from config.db import dbs, task_db
 from model import User
 from dotenv import load_dotenv
