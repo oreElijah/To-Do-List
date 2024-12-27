@@ -1,7 +1,7 @@
+import os
 import pymongo
-from datetime import datetime
 
-client = pymongo.MongoClient("mongodb://localhost:27017")
+client = pymongo.MongoClient(os.environ.get("MONGODB_URL"))
 
 
 db = client['mydatabase']
